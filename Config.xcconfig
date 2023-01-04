@@ -1,0 +1,10 @@
+//
+//  Config.xcconfig
+//  WeatherIOSApp
+//
+//  Created by Passant Abdelatif on 04/01/2023.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+WEATHER_API_Key = 77d0096681f743c4af912354230301
