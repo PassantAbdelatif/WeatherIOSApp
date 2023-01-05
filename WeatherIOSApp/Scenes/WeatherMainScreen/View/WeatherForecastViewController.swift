@@ -39,6 +39,7 @@ class WeatherForecastViewController: UIViewController {
     @IBOutlet weak var closeAutoCompleteSearchTableView: UIView!
     @IBOutlet weak var closeSearchTableViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var closeAutoCompeteButton: UIButton!
+    @IBOutlet weak var clearSearchTextFieldButton: UIButton!
     
     // MARK: - variables
     var weatherForecastPresenterObject : ViewToPresenterWeatherForecastProtocol?
@@ -75,6 +76,10 @@ extension WeatherForecastViewController {
         self.view.sendSubviewToBack(searchView)
     }
     
+    @IBAction func clearSearchButtonAction(_ sender: Any) {
+        searchTextField.text = ""
+    }
+    
     @IBAction func closeSearchAutoCompleteButtonAction(_ sender: Any) {
         switch autoCompleteCase {
         case .close:
@@ -92,6 +97,11 @@ extension WeatherForecastViewController {
         }
     }
     @objc private func textDidChange(sender: UITextField) {
+        if self.searchTextField.text.orEmpty.isEmpty {
+            clearSearchTextFieldButton.isHidden = true
+        } else {
+            clearSearchTextFieldButton.isHidden = false
+        }
         
         //show suggestion view
         if let searchText = self.searchTextField.text,

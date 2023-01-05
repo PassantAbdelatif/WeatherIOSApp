@@ -24,6 +24,7 @@
             <connections>
                 <outlet property="activityIndicator" destination="te6-0K-9Ji" id="s9d-rq-fBm"/>
                 <outlet property="backgroundView" destination="Nrk-3I-j35" id="XC1-rO-wWa"/>
+                <outlet property="clearSearchTextFieldButton" destination="rjE-2a-OLF" id="Pyg-7D-kTc"/>
                 <outlet property="closeAutoCompeteButton" destination="d5u-b2-zOl" id="XlW-0T-EQ2"/>
                 <outlet property="closeAutoCompleteSearchTableView" destination="hat-6L-vkA" id="onK-mD-cDI"/>
                 <outlet property="closeSearchTableViewHeightConstraint" destination="XOC-zR-TMd" id="Bto-Ze-Qco"/>
@@ -336,7 +337,7 @@
                             </constraints>
                         </imageView>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QNc-lh-2Cd">
-                            <rect key="frame" x="88" y="70" width="270" height="50"/>
+                            <rect key="frame" x="74" y="70" width="272" height="50"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
@@ -366,14 +367,26 @@
                                 <constraint firstAttribute="height" constant="80" id="cvQ-wI-ERQ"/>
                             </constraints>
                         </tableView>
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rjE-2a-OLF">
+                            <rect key="frame" x="351" y="83" width="24" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="24" id="Qa5-lD-tHj"/>
+                                <constraint firstAttribute="width" constant="24" id="stx-fY-nfw"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" image="ic_close"/>
+                            <connections>
+                                <action selector="clearSearchButtonAction:" destination="-1" eventType="touchUpInside" id="9aR-4y-JWH"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstItem="QNc-lh-2Cd" firstAttribute="width" secondItem="RXc-sK-aoW" secondAttribute="width" multiplier="0.85" id="9cn-Mn-aNw"/>
                         <constraint firstItem="QNc-lh-2Cd" firstAttribute="height" secondItem="RXc-sK-aoW" secondAttribute="height" id="A2h-6q-gLM"/>
                         <constraint firstItem="RXc-sK-aoW" firstAttribute="centerY" secondItem="Hhr-Mq-Tz9" secondAttribute="centerY" constant="3" id="BD3-VX-A21"/>
                         <constraint firstItem="RXc-sK-aoW" firstAttribute="leading" secondItem="Hhr-Mq-Tz9" secondAttribute="trailing" constant="14" id="Caq-Wn-x4k"/>
                         <constraint firstItem="QNc-lh-2Cd" firstAttribute="centerY" secondItem="RXc-sK-aoW" secondAttribute="centerY" id="EvJ-Ui-YJv"/>
+                        <constraint firstItem="rjE-2a-OLF" firstAttribute="trailing" secondItem="RXc-sK-aoW" secondAttribute="trailing" constant="-7" id="Kx5-cg-MuP"/>
                         <constraint firstAttribute="bottom" secondItem="hat-6L-vkA" secondAttribute="bottom" id="L6U-Jv-EJH"/>
                         <constraint firstItem="EsJ-fX-zPl" firstAttribute="top" secondItem="RXc-sK-aoW" secondAttribute="bottom" constant="31" id="LL5-Or-jRH"/>
                         <constraint firstItem="Hhr-Mq-Tz9" firstAttribute="leading" secondItem="mgY-dS-yAp" secondAttribute="leading" constant="26" id="Lng-3p-KCu"/>
@@ -381,10 +394,13 @@
                         <constraint firstAttribute="trailing" secondItem="EsJ-fX-zPl" secondAttribute="trailing" id="T1R-hE-aKJ"/>
                         <constraint firstItem="RXc-sK-aoW" firstAttribute="top" secondItem="mgY-dS-yAp" secondAttribute="top" constant="70" id="Upi-rO-pui"/>
                         <constraint firstAttribute="trailing" secondItem="hat-6L-vkA" secondAttribute="trailing" id="X3L-n4-IrN"/>
-                        <constraint firstItem="QNc-lh-2Cd" firstAttribute="centerX" secondItem="RXc-sK-aoW" secondAttribute="centerX" id="pDy-nM-6Th"/>
+                        <constraint firstItem="RXc-sK-aoW" firstAttribute="leading" secondItem="Hhr-Mq-Tz9" secondAttribute="trailing" constant="14" id="brv-m9-Y78"/>
                         <constraint firstItem="EsJ-fX-zPl" firstAttribute="leading" secondItem="mgY-dS-yAp" secondAttribute="leading" id="pmZ-6i-QM5"/>
+                        <constraint firstItem="QNc-lh-2Cd" firstAttribute="leading" secondItem="RXc-sK-aoW" secondAttribute="leading" constant="10" id="qnW-Mu-iy7"/>
                         <constraint firstItem="hat-6L-vkA" firstAttribute="leading" secondItem="mgY-dS-yAp" secondAttribute="leading" id="rIx-xG-000"/>
                         <constraint firstAttribute="trailing" secondItem="RXc-sK-aoW" secondAttribute="trailing" constant="32" id="te2-pH-eIT"/>
+                        <constraint firstItem="rjE-2a-OLF" firstAttribute="centerY" secondItem="QNc-lh-2Cd" secondAttribute="centerY" id="uvC-wm-dBJ"/>
+                        <constraint firstItem="rjE-2a-OLF" firstAttribute="leading" secondItem="QNc-lh-2Cd" secondAttribute="trailing" constant="5" id="zSY-8h-DcR"/>
                     </constraints>
                 </view>
             </subviews>
@@ -437,6 +453,7 @@
         <image name="gradient_background_image" width="390" height="844"/>
         <image name="ic_arrow_left" width="24" height="24"/>
         <image name="ic_arrow_top" width="13" height="8"/>
+        <image name="ic_close" width="24" height="24"/>
         <image name="ic_droplet" width="20" height="20"/>
         <image name="ic_search" width="24" height="24"/>
         <image name="ic_search_field" width="298" height="50"/>
