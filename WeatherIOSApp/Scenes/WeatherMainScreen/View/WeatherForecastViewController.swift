@@ -8,6 +8,11 @@
 import UIKit
 import SDWebImage
 
+enum AutCompleteState {
+    case open
+    case close
+}
+
 class WeatherForecastViewController: UIViewController {
     // MARK: - Outlets
     @IBOutlet weak var searchTableView: UITableView!
@@ -33,9 +38,15 @@ class WeatherForecastViewController: UIViewController {
     @IBOutlet weak var searchTableViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var closeAutoCompleteSearchTableView: UIView!
     @IBOutlet weak var closeSearchTableViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var closeAutoCompeteButton: UIButton!
+    
     // MARK: - variables
     var weatherForecastPresenterObject : ViewToPresenterWeatherForecastProtocol?
     var searchWeatherResults = [WeatherAutoCompleteSearchResponse]()
+    var autoCompleteCase: AutCompleteState = .close
+    let searchResultCellHeight = 32
+    let roundedCornereSearchView = 30.0
+    
     // MARK: - life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,7 +76,20 @@ extension WeatherForecastViewController {
     }
     
     @IBAction func closeSearchAutoCompleteButtonAction(_ sender: Any) {
-        closeSearchAutoCompleteView()
+        switch autoCompleteCase {
+        case .close:
+            autoCompleteCase = .open
+            closeAutoCompeteButton.setImage(UIImage(named: AssetNames.Arrow.arrowDown),
+                                            for: .normal)
+            searchTableViewHeightConstraint.constant = 0
+            searchTableView.isHidden = true
+        case .open:
+            autoCompleteCase = .close
+            closeAutoCompeteButton.setImage(UIImage(named: AssetNames.Arrow.arrowUp),
+                                            for: .normal)
+            setUpSearchTableHeight()
+            searchTableView.isHidden = false
+        }
     }
     @objc private func textDidChange(sender: UITextField) {
         
@@ -89,9 +113,9 @@ extension WeatherForecastViewController {
                                        action: #selector(textDidChange(sender:)),
                                        for: .editingChanged)
         searchView.roundCorners(corners: [.bottomLeft, .bottomRight],
-                                radius: 30.0)
+                                radius: roundedCornereSearchView)
         closeAutoCompleteSearchTableView.roundCorners(corners: [.bottomLeft, .bottomRight],
-                                                      radius: 30.0)
+                                                      radius: roundedCornereSearchView)
     }
     func registerCells() {
         searchTableView.delegate = self
@@ -105,7 +129,10 @@ extension WeatherForecastViewController {
         searchView.isHidden = false
         searchTableView.isHidden = false
         closeSearchTableViewHeightConstraint.constant = 40
-        self.searchTableViewHeightConstraint.constant = CGFloat(32 * searchWeatherResults.count)
+        autoCompleteCase = .close
+        closeAutoCompeteButton.setImage(UIImage(named: AssetNames.Arrow.arrowUp),
+                                        for: .normal)
+        self.searchTableViewHeightConstraint.constant = CGFloat(searchResultCellHeight * searchWeatherResults.count)
         self.view.layoutIfNeeded()
     }
     func closeSearchMainContainerView() {
@@ -114,12 +141,8 @@ extension WeatherForecastViewController {
         searchTableView.isHidden = true
         searchView.isHidden = true
     }
-    func closeSearchAutoCompleteView() {
-        searchTableViewHeightConstraint.constant = 0
-        closeSearchTableViewHeightConstraint.constant = 0
-        searchTableView.isHidden = true
-        searchView.isHidden = false
-    }
+  
+    
 }
 
 // MARK: - Get Data
@@ -224,13 +247,12 @@ extension WeatherForecastViewController: UITableViewDataSource, UITableViewDeleg
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        closeSearchAutoCompleteView()
         closeSearchMainContainerView()
         weatherForecastPresenterObject?.getWeatherForecast(cityName: self.searchWeatherResults[indexPath.row].name.orEmpty)
         
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 32.0
+        return CGFloat(searchResultCellHeight)
     }
 }
 

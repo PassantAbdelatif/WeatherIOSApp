@@ -50,6 +50,7 @@
 		D7BBC9A129672C7800B789E3 /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BBC9A029672C7700B789E3 /* IntExtension.swift */; };
 		D7BBC9A329673BD400B789E3 /* UImage+ImageUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BBC9A229673BD400B789E3 /* UImage+ImageUrl.swift */; };
 		D7BBC9A629673E9900B789E3 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BBC9A529673E9900B789E3 /* UIViewExtension.swift */; };
+		D7BE06AE296779B200A21180 /* AssetsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE06AD296779B200A21180 /* AssetsConstants.swift */; };
 		FA5C289B02CE0D94D2C739A0 /* Pods_WeatherIOSApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D92C612BB91EDE7DC7831ED0 /* Pods_WeatherIOSApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -102,6 +103,7 @@
 		D7BBC9A029672C7700B789E3 /* IntExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
 		D7BBC9A229673BD400B789E3 /* UImage+ImageUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UImage+ImageUrl.swift"; sourceTree = "<group>"; };
 		D7BBC9A529673E9900B789E3 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		D7BE06AD296779B200A21180 /* AssetsConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsConstants.swift; sourceTree = "<group>"; };
 		D92C612BB91EDE7DC7831ED0 /* Pods_WeatherIOSApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeatherIOSApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -168,6 +170,7 @@
 				D75CFED12965050B0066EF3F /* FontsConstants.swift */,
 				D75CFED22965050B0066EF3F /* KeyConstants.swift */,
 				D75CFED32965050B0066EF3F /* URLConstants.swift */,
+				D7BE06AD296779B200A21180 /* AssetsConstants.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -520,6 +523,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7BE06AE296779B200A21180 /* AssetsConstants.swift in Sources */,
 				D7BBC9A629673E9900B789E3 /* UIViewExtension.swift in Sources */,
 				D75CFEEA2965CD9B0066EF3F /* WeatherForecastViewController.swift in Sources */,
 				D75CFEDC29650A7E0066EF3F /* WeatherApi.swift in Sources */,
