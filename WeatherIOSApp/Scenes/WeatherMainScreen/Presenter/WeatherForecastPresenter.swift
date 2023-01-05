@@ -24,7 +24,7 @@ class WeatherForecastPresenter: ViewToPresenterWeatherForecastProtocol {
 }
 
 extension WeatherForecastPresenter: InteractorToPresenterWeatherForecastProtocol {
-    func sendToDataPresenter(weatherInfo: [WeatherAutoCompleteSearchResponse]) {
+    func sendToDataPresenter(weatherInfo: [WeatherAutoCompleteSearchResponse]?) {
         weatherForecastView?.sendToDataView(weatherInfo: weatherInfo)
     }
     

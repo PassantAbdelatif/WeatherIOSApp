@@ -23,14 +23,14 @@ protocol PresenterToInteractorWeatherForecastProtocol {
 }
 
 protocol InteractorToPresenterWeatherForecastProtocol {
-    func sendToDataPresenter(weatherInfo : [WeatherAutoCompleteSearchResponse])
+    func sendToDataPresenter(weatherInfo : [WeatherAutoCompleteSearchResponse]?)
     func sendToDataPresenter(weatherInfo : WeatherForecastResponse?)
 }
 
 protocol PresenterToViewWeatherForecastProtocol {
     func startViewLoader()
     func endViewLoader()
-    func sendToDataView(weatherInfo : [WeatherAutoCompleteSearchResponse])
+    func sendToDataView(weatherInfo : [WeatherAutoCompleteSearchResponse]?)
     func sendToDataView(weatherInfo : WeatherForecastResponse?)
     func sendErrorToView(error: String)
 }

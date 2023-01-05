@@ -138,7 +138,11 @@ extension WeatherForecastViewController: PresenterToViewWeatherForecastProtocol 
         self.activityIndicator.stopAnimating()
     }
     
-    func sendToDataView(weatherInfo: [WeatherAutoCompleteSearchResponse]) {
+    func sendToDataView(weatherInfo: [WeatherAutoCompleteSearchResponse]?) {
+        guard let weatherInfo = weatherInfo else {
+            return
+        }
+
         if !weatherInfo.isEmpty {
             searchTableView.isHidden = false
             searchWeatherResults.removeAll()

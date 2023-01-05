@@ -19,7 +19,7 @@ class WeatherForecastInteractor: PresenterToInteractorWeatherForecastProtocol {
     func getWeatherAutoCompleteSearchResult(cityName: String) {
         self.weatherForecastService.fetchWeatherAutoCompleteSearchResults(cityName: cityName)
         { [weak self] response, error in
-            self?.weatherForecastPresenter?.sendToDataPresenter(weatherInfo: response!)
+            self?.weatherForecastPresenter?.sendToDataPresenter(weatherInfo: response)
         }
     }
     
