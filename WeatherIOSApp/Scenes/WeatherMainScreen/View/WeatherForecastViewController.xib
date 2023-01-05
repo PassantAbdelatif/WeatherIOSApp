@@ -360,7 +360,7 @@
                             </constraints>
                         </view>
                         <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="EsJ-fX-zPl">
-                            <rect key="frame" x="39" y="151" width="355" height="80"/>
+                            <rect key="frame" x="0.0" y="151" width="414" height="80"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="80" id="cvQ-wI-ERQ"/>
@@ -378,11 +378,11 @@
                         <constraint firstItem="EsJ-fX-zPl" firstAttribute="top" secondItem="RXc-sK-aoW" secondAttribute="bottom" constant="31" id="LL5-Or-jRH"/>
                         <constraint firstItem="Hhr-Mq-Tz9" firstAttribute="leading" secondItem="mgY-dS-yAp" secondAttribute="leading" constant="26" id="Lng-3p-KCu"/>
                         <constraint firstItem="hat-6L-vkA" firstAttribute="top" secondItem="EsJ-fX-zPl" secondAttribute="bottom" id="O8g-lK-vIe"/>
-                        <constraint firstAttribute="trailing" secondItem="EsJ-fX-zPl" secondAttribute="trailing" constant="20" id="T1R-hE-aKJ"/>
+                        <constraint firstAttribute="trailing" secondItem="EsJ-fX-zPl" secondAttribute="trailing" id="T1R-hE-aKJ"/>
                         <constraint firstItem="RXc-sK-aoW" firstAttribute="top" secondItem="mgY-dS-yAp" secondAttribute="top" constant="70" id="Upi-rO-pui"/>
                         <constraint firstAttribute="trailing" secondItem="hat-6L-vkA" secondAttribute="trailing" id="X3L-n4-IrN"/>
                         <constraint firstItem="QNc-lh-2Cd" firstAttribute="centerX" secondItem="RXc-sK-aoW" secondAttribute="centerX" id="pDy-nM-6Th"/>
-                        <constraint firstItem="EsJ-fX-zPl" firstAttribute="leading" secondItem="mgY-dS-yAp" secondAttribute="leading" constant="39" id="pmZ-6i-QM5"/>
+                        <constraint firstItem="EsJ-fX-zPl" firstAttribute="leading" secondItem="mgY-dS-yAp" secondAttribute="leading" id="pmZ-6i-QM5"/>
                         <constraint firstItem="hat-6L-vkA" firstAttribute="leading" secondItem="mgY-dS-yAp" secondAttribute="leading" id="rIx-xG-000"/>
                         <constraint firstAttribute="trailing" secondItem="RXc-sK-aoW" secondAttribute="trailing" constant="32" id="te2-pH-eIT"/>
                     </constraints>

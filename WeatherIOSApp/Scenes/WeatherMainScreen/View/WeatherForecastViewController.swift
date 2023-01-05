@@ -123,7 +123,7 @@ extension WeatherForecastViewController {
         searchTableView.isScrollEnabled = true
         searchTableView.isHidden = true
         
-        searchTableView.registerClassFor(cellClass: UITableViewCell.self)
+        searchTableView.registerNibFor(cellClass: AutoCompleteSearchTableViewCell.self)
     }
     func setUpSearchTableHeight() {
         searchView.isHidden = false
@@ -239,9 +239,8 @@ extension WeatherForecastViewController: UITableViewDataSource, UITableViewDeleg
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        
-        let cell = tableView.dequeueReusableCell(cellClass: UITableViewCell.self)
-        cell.textLabel!.text = "\(self.searchWeatherResults[indexPath.row].name.orEmpty) - \(self.searchWeatherResults[indexPath.row].region.orEmpty)"
+        let cell = tableView.dequeueReusableCell(cellClass: AutoCompleteSearchTableViewCell.self)
+        cell.configCell(model: searchWeatherResults[indexPath.row])
         return cell
         
     }
