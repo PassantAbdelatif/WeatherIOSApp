@@ -67,7 +67,7 @@ struct Hour: Codable {
     var precipMm: Float?
     var windDir: String?
     var heatindexF: Float?
-    var windKph: Int?
+    var windKph: Float?
     var isDay: Int?
     var tempC: Float?
     var cloud: Int?
