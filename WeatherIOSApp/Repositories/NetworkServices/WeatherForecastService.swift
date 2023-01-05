@@ -28,6 +28,7 @@ final class WeatherForecastService: WeatherForecastServiceProtocol {
             case .success(let response):
                 if 200...299 ~= response.statusCode {
                     do {
+                      //  response.data.printJSON()
                         let result = try JSONDecoder().decode(
                             WeatherForecastResponse.self,
                             from: response.data)

@@ -8,7 +8,7 @@
 import Foundation
 extension String {
 
-    func toDate(withFormat format: String = "yyyy-MM-dd")-> Date?{
+    func toDate(withFormat format: String = "yyyy-MM-dd")-> Date? {
 
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en")
@@ -18,5 +18,17 @@ extension String {
 
         return date
 
+    }
+    func toAnotherDateFormat(fromFormat format: String = "yyyy-MM-dd HH:mm",
+                             toFormat otherFormat: String = "EEEE, d MMM yyyy")-> String? {
+        let formatter = DateFormatter()
+        formatter.locale = Locale.englishLocale
+        formatter.calendar = Calendar(identifier: .gregorian)
+        formatter.dateFormat = format
+        if let date = formatter.date(from: self) {
+            formatter.dateFormat = otherFormat
+            return  formatter.string(from: date)
+        }
+        return nil
     }
 }

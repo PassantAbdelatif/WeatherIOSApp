@@ -44,6 +44,7 @@ extension WeatherApi: TargetType {
         case .getAllWeatherForecast(let cityName):
             
             return .requestParameters(parameters: [Key.Headers.searchKey: cityName,
+                                                   Key.Headers.days: 7,
                                                    Key.Headers.key: Bundle.main.infoDictionary?[Key.Headers.weatherApiKey] ?? ""],
                                       encoding: URLEncoding.queryString)
         case .getAutoCompleteSearchResults(let cityName):

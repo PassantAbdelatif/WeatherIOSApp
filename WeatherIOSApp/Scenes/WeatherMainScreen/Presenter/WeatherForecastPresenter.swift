@@ -13,7 +13,6 @@ class WeatherForecastPresenter: ViewToPresenterWeatherForecastProtocol {
     var weatherForecastView: PresenterToViewWeatherForecastProtocol?
     
     func getWeatherAutoCompleteSearchResult(cityName: String) {
-        weatherForecastView?.startViewLoader()
         weatherForecastInteractor?.getWeatherAutoCompleteSearchResult(cityName: cityName)
     }
     
@@ -27,7 +26,6 @@ class WeatherForecastPresenter: ViewToPresenterWeatherForecastProtocol {
 extension WeatherForecastPresenter: InteractorToPresenterWeatherForecastProtocol {
     func sendToDataPresenter(weatherInfo: [WeatherAutoCompleteSearchResponse]) {
         weatherForecastView?.sendToDataView(weatherInfo: weatherInfo)
-        weatherForecastView?.endViewLoader()
     }
     
     func sendToDataPresenter(weatherInfo: WeatherForecastResponse?) {

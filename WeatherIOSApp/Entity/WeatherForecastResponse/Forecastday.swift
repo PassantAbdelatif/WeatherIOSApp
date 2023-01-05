@@ -11,31 +11,55 @@ protocol checkIfDateIdFriday {
     mutating func checkIfDateIsFriday()
 }
 
-struct Forecastday: Codable {
+class Forecastday: Codable {
     
     enum CodingKeys: String, CodingKey {
         case dateEpoch = "date_epoch"
-        case hour
-        case astro
         case day
         case date
     }
     
     var dateEpoch: Int?
-    var hour: [Hour]?
-    var astro: Astro?
     var day: Day?
     var date: String?
-    var isFriday: Bool?
-}
-
-extension Forecastday: checkIfDateIdFriday {
-   
-    mutating func checkIfDateIsFriday() {
+    
+    
+    private var _isFriday: Bool?
+    var isFriday: Bool? {
+        
+        if self._isFriday != nil {
+            return _isFriday
+        }
         if let date = self.date?.toDate() {
             if date.getWeekDay() == .friday {
-                self.isFriday = true
+                _isFriday = true
             }
         }
+        return _isFriday
+    }
+    
+    private var _isToday: Bool?
+    var isToday: Bool? {
+        
+        if self._isToday != nil {
+            return _isToday
+        }
+        if let date = self.date?.toDate() {
+            _isToday = date.isToday
+        }
+        return _isToday
+    }
+    
+    private var _isTomorrow: Bool?
+    var isTomorrow: Bool? {
+        
+        if self._isTomorrow != nil {
+            return _isTomorrow
+        }
+        if let date = self.date?.toDate() {
+            _isTomorrow = date.isTomorrow
+        }
+        return _isTomorrow
     }
 }
+

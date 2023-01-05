@@ -7,5 +7,6 @@ target 'WeatherIOSApp' do
 
   # Pods for WeatherIOSApp
   pod 'Moya', '~> 15.0'
+  pod 'SDWebImage', '~> 5.0'
 
 end

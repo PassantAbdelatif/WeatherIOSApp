@@ -23,4 +23,12 @@ extension Date {
         let weekDay = calendar.component(Calendar.Component.weekday, from: self)
         return WeekDay(rawValue: weekDay)!
     }
+    
+    var isToday: Bool {
+        return Calendar.current.isDateInToday(self)
+    }
+    
+    var isTomorrow: Bool {
+        return Calendar.current.isDateInTomorrow(self)
+    }
 }
